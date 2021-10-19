@@ -44,4 +44,24 @@ blogEntries.push(new BlogEntry(0, '#808ca4', '#9d8488', '#d4907d', '#fea67a', 'T
 blogEntries.push(new BlogEntry(1, '#60748f', '#8995a5', '#abb9c6', '#c5d0d4', 'Tokyo,Japan', 'April 08, 2021', 'https://drive.google.com/drive/u/0/folders/1KRGQ93NGK9PMdQ_bhDOWO-eoeZLjdSIc', 'Heading back to Korea after family trip'))
 blogEntries.push(new BlogEntry(2, '#fbb091', '#afcdd7', '#6f8698', '#dcd1b5', 'Tokyo,Japan', 'May 05, 2021', 'https://drive.google.com/drive/u/0/folders/1KRGQ93NGK9PMdQ_bhDOWO-eoeZLjdSIc'))
 blogEntries.push(new BlogEntry(3, '#db7a57', '#f9ad59', '#b9b9b7', '#fcb479', 'Tokyo,Japan', 'May 10, 2021', 'https://drive.google.com/drive/u/0/folders/1KRGQ93NGK9PMdQ_bhDOWO-eoeZLjdSIc'))
+
+
+console.log(blogEntries);
+
+
+var AWS = require('aws-sdk');
+AWS.config = new AWS.Config();
+AWS.config.region = "us-east-2";
+
+var dynamodb = new AWS.DynamoDB();
+
+for (var i=0; i< blogEntries.length; i++){ var params = {};
+params.Item = blogEntries[i]; 
+params.TableName = "processblog";
+
+dynamodb.putItem(params, function (err, data) {
+  if (err) console.log(err, err.stack); // an error occurred
+  else     console.log(data);           // successful response
+});
+}
 ```
