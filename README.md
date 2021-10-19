@@ -1,3 +1,2 @@
 ## Database Model
-
-![DB Model](https:/https://github.com/joo-interactive-design/data-structures-21/blob/main/assignment_04/db_model.png)
+![db_model](https://user-images.githubusercontent.com/86972559/137996506-e86163dc-ec58-4c51-a008-cc9993caab85.png)
