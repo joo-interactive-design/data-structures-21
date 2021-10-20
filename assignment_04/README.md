@@ -14,20 +14,20 @@ db_credentials.port = 5432;
 
 
 2. Connect to the AWS RDS Postgres database
-```
+```js
 const client = new Client(db_credentials);
 client.connect();
 ```
 
 3. Create/Delete table, Insert Rows, Select & Count Rows
-```
+```js
 var thisQuery = "CREATE TABLE aalocations (address varchar(100), lat double precision, long double precision);";
 ```
 
-```
+```js
 var thisQuery = "INSERT INTO aalocations VALUES (E'" + value.address + "', " + value.latLong.lat + ", " + value.latLong.lng + ");";
 ```
 
-```
+```js
 var thisQuery = "SELECT * FROM aalocations;";
 ```
