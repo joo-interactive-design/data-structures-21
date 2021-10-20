@@ -9,7 +9,7 @@ I'm using noSQL database to store the data of my sky photos that I took, which i
 
 ###The Process
 1. Create BlogEntry class to store the value
-```
+```js
 class BlogEntry {
   constructor(primaryKey, colorPalette01, colorPalette02, colorPalette03, colorPalette04, place, date, image, comment) {
     this.pk = {};
@@ -39,7 +39,7 @@ class BlogEntry {
 
 2. Connected Cloud 9 with DynamoDB
 3. Push the entries
-```
+```js
 blogEntries.push(new BlogEntry(0, '#808ca4', '#9d8488', '#d4907d', '#fea67a', 'Tokyo,Japan', 'March 13, 2021', 'https://drive.google.com/drive/u/0/folders/1KRGQ93NGK9PMdQ_bhDOWO-eoeZLjdSIc', 'on the way to home after working!'))
 blogEntries.push(new BlogEntry(1, '#60748f', '#8995a5', '#abb9c6', '#c5d0d4', 'Tokyo,Japan', 'April 08, 2021', 'https://drive.google.com/drive/u/0/folders/1KRGQ93NGK9PMdQ_bhDOWO-eoeZLjdSIc', 'Heading back to Korea after family trip'))
 blogEntries.push(new BlogEntry(2, '#fbb091', '#afcdd7', '#6f8698', '#dcd1b5', 'Tokyo,Japan', 'May 05, 2021', 'https://drive.google.com/drive/u/0/folders/1KRGQ93NGK9PMdQ_bhDOWO-eoeZLjdSIc'))
