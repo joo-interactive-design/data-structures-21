@@ -12,7 +12,7 @@ I'm using noSQL database to store the data of my sky photos that I took, which i
 
 
 
-###The Process
+### The Process
 1. Create BlogEntry class to store the value
 ```js
 class BlogEntry {
