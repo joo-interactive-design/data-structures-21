@@ -6,7 +6,7 @@ I'm using noSQL database to store the data of my sky photos that I took, which i
 
 ![Screen Shot 2021-10-19 at 3 48 46 PM](https://user-images.githubusercontent.com/86972559/138000505-64609b3f-2404-4fc4-9add-7231dbe703d9.png)
 
-###visual reference
+### visual reference
 ![Screen Shot 2021-10-20 at 12 52 16 PM](https://user-images.githubusercontent.com/86972559/138137076-8bd4ddc2-a41d-4afb-ac44-9883bd35d2e1.png)
 
 
