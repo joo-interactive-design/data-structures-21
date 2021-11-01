@@ -12,7 +12,7 @@ var $ = cheerio.load(content);
 
 // print (to the console) names of thesis students
 //li:nth-child(3)
-var thesisTitles = '';
+var addressBook = '';
 $('tbody>tr>td[valign="top"]:nth-of-type(2n-1)').each(function(i, elem) {
 // $('tbody>tr>td:nth-of-type(3n-2)').each(function(i, elem){
     // console.log(i)
@@ -26,14 +26,14 @@ $('tbody>tr>td[valign="top"]:nth-of-type(2n-1)').each(function(i, elem) {
         // console.log(tempArray[1].trim()+tempArray[3].split(',')[0].trim()+tempArray[4].trim())
     
         // console.log(tempArray[1].trim()+','+tempArray[3].split(',')[0].trim()+','+tempArray[4].trim());
-        thesisTitles +=/*tempArray[1].trim()+', '+*/tempArray[3].split(',')[0].trim()+'\n';
+        addressBook +=/*tempArray[1].trim()+', '+*/tempArray[3].split(',')[0].trim()+'\n';
         
     }
     
     
 });
 
-console.log(thesisTitles)
+console.log(addressBook)
 
 
 
@@ -44,4 +44,4 @@ console.log(thesisTitles)
 //     thesisTitles += ($(elem).text()).trim() + '\n';
 // });
 
-fs.writeFileSync('data/addressData.txt', thesisTitles);
+fs.writeFileSync('data/addressData.txt', addressBook);

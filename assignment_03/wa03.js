@@ -54,8 +54,7 @@ async.eachSeries(addressArray, function(value, callback) {
     // 		console.log(tamuGeo['FeatureMatchingResultType'], apiRequest);
     		meetingsData.push({address: value + ', New York, NY', latLong:{lat: tamuGeo.OutputGeocodes[0].OutputGeocode.Latitude, lng: tamuGeo.OutputGeocodes[0].OutputGeocode.Longitude}});
     	} catch (error) {
-    // 		console.log(error.response.body);
-        console.log(error)
+    		console.log(error.response.body);
     	}
     })();
 

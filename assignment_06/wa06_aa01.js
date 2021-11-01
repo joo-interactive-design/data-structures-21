@@ -1,5 +1,8 @@
 const { Client } = require('pg');
-const cTable = require('console.table');
+const Table = require('console.table');
+const dotenv = require('dotenv');
+dotenv.config();  
+
 
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
@@ -15,9 +18,12 @@ const client = new Client(db_credentials);
 client.connect();
 
 // Sample SQL statement to query meetings on Monday that start on or after 7:00pm: 
+// var thisQuery = "SELECT mtgday, mtgtime, mtglocation, mtgaddress, mtgtypes FROM aadata WHERE mtgday = 'Monday' and mtghour >= 19;";
+
 var thisQuery = "SELECT address, lat, long FROM aalocations WHERE long >= -73.95 and long <= -73.94;";
 
-client.query(thisQuery, (err, res) => {
+
+client.query(thisQuery, (err, res) => { 
     if (err) {throw err}
     else {
         console.table(res.rows);
