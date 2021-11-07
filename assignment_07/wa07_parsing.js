@@ -1,18 +1,34 @@
 var fs = require('fs');
 var cheerio = require('cheerio');
-var fileName = 'aa03'
+
+for (let i=1; i<11; i++){
+    
+    if ( i == 10){
+        var fileName = 'aa10'
+    }else{
+        var fileName = 'aa0' + i;
+    }
+    
+   getJson(fileName)
+    
+}
+
+
+async function getJson(fileName){
+    
+    
+
 
 //read file to parse
 var content = fs.readFileSync('/home/ec2-user/environment/weekly_assignments/assignment_01/data/'+fileName+'.txt');
 
+
 // load `content` into a cheerio object
 var $ = cheerio.load(content);
 
-// print (to the console) names of thesis students
-//li:nth-child(3)
 var addressBook = '';
 
-var dataSet = []
+var dataSet = [];
 
 $('tbody>tr[style="margin-bottom:10px"]').each(function(i, elem) {
 // $('tbody>tr>td:nth-of-type(3n-2)').each(function(i, elem){
@@ -40,6 +56,7 @@ $('tbody>tr[style="margin-bottom:10px"]').each(function(i, elem) {
                 meeting_titles: $(elem).find('b').html().replace(/\-\s*$/,'').replaceAll('&amp;', '&').trim(),
             }
             
+     
             // $(elem).find('td:nth-of-type(2)').find('b').each(function(i,e){
               
             //     if($(e).html().indexOf(' From')>=0){
@@ -71,7 +88,20 @@ $('tbody>tr[style="margin-bottom:10px"]').each(function(i, elem) {
                     // console.log(meetingTypeAcronyms)
                     
                     var meetingType = dateInfo.split('=')[1]
-                    meetingType = meetingType?meetingType.match(/.+meeting/)[0].trim():null
+                    // meetingType = meetingType?meetingType.match(/.+meeting/)[0].trim():null
+                    
+                      if (typeof dateInfo.split('=')[1] !== "undefined" ) {
+                          
+                         meetingType = dateInfo.split('=')[1].split("meeting")[0] + 'meeting'
+                         
+                        //  console.log( dateInfo.split('=')[1].split("meeting")[0] )
+                          
+                          
+                      } 
+                      
+                      else { meetingType = null}
+                      
+                    // console.log(meetingType)
                 
                     // console.log(meetingType)
                     
@@ -106,7 +136,7 @@ $('tbody>tr[style="margin-bottom:10px"]').each(function(i, elem) {
  
             }            
             
-            // console.log(data)
+           
             
             dataSet.push(data)
             
@@ -118,9 +148,10 @@ $('tbody>tr[style="margin-bottom:10px"]').each(function(i, elem) {
     
 });
 
-console.log(dataSet)
+console.log(fileName)
 
 
 
-fs.writeFileSync('data/'+fileName+'.json',JSON.stringify(dataSet));
+fs.writeFileSync('newdata/'+fileName+'.json',JSON.stringify(dataSet));
 
+}
